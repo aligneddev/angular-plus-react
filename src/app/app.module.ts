@@ -3,10 +3,14 @@ import { createCustomElement } from '@angular/elements';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HeaderWrapperComponent } from './header/header-wrapper.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HeaderWrapperComponent
   ],
   imports: [
     BrowserModule
@@ -14,13 +18,14 @@ import { AppComponent } from './app.component';
   providers: [],
   entryComponents: [
     AppComponent
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
 
 export class AppModule implements DoBootstrap {
   constructor(private injector: Injector) {
-    const webComponent = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('angular-web-component', webComponent);
+    // const webComponent = createCustomElement(AppComponent, { injector: this.injector });
+    // customElements.define('angular-web-component', webComponent);
   }
 
   ngDoBootstrap() { }
