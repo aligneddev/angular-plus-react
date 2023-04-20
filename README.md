@@ -1,6 +1,8 @@
 # Interweaving Angular and React
 
-Goal: I needed to use an Angular component inside of a React component (a company wide React header that is hosted in [bit.cloud](https://bit.cloud/)) that is inside of my Angular app.
+Goal: I needed to use an Angular component inside of a React component (a company wide React header that is hosted in [bit.cloud](https://bit.cloud/)) that is inside of my Angular app. 
+
+My Angular component needed to be on/in the header and was sufficiently complex that I didn't want to rewrite it in React.
 
 This is a minimal reference solution I created today. I started with and followed instructions from [Machine Llama](https://javascript.plainenglish.io/how-to-dynamically-integrate-angular-in-react-and-share-data-between-both-c507e90b1f09) and [his code](https://github.com/MachineLlama/multi-app).
 This approach is different in that I put both Angular and React in the same app, instead of 2 different apps that Machine Llama has.
