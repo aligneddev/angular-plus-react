@@ -5,6 +5,8 @@ Goal: I needed to use an Angular component inside of a React component (a compan
 This is a minimal reference solution I created today. I started with and followed instructions from [Machine Llama](https://javascript.plainenglish.io/how-to-dynamically-integrate-angular-in-react-and-share-data-between-both-c507e90b1f09) and [his code](https://github.com/MachineLlama/multi-app).
 This approach is different in that I put both Angular and React in the same app, instead of 2 different apps that Machine Llama has.
 
+The Angular components are bordered in red, the React components are bordered in blue.
+
 ## Development Details
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
