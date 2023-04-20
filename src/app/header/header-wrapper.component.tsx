@@ -48,7 +48,15 @@ export class HeaderWrapperComponent
     const root = createRoot(this.containerRef.nativeElement as HTMLElement);
     root.render(
       <React.StrictMode>
-        <Header />
+        <Header
+          {...{
+            headerComponents: [
+              // tsx won't let us use the web component here
+              /* @ts-ignore */
+              <notification-web-component></notification-web-component>,
+            ],
+          }}
+        />
       </React.StrictMode>
     );
   }
