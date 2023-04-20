@@ -35,6 +35,7 @@ export class HeaderWrapperComponent
 
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
+    console.log('changed');
     this.render();
   }
 
