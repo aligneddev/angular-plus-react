@@ -4,6 +4,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnChanges,
   OnDestroy,
   SimpleChanges,
@@ -30,6 +31,7 @@ export class HeaderWrapperComponent
   implements OnChanges, OnDestroy, AfterViewInit
 {
   @ViewChild(containerElementName, { static: true }) containerRef!: ElementRef;
+  @Input() appNotificationCounter: number = 0;
 
   constructor() {}
   ngOnChanges(changes: SimpleChanges): void {
@@ -53,7 +55,7 @@ export class HeaderWrapperComponent
             headerComponents: [
               // tsx won't let us use the web component here
               /* @ts-ignore */
-              <notification-web-component></notification-web-component>,
+              <notification-web-component counter={this.appNotificationCounter}></notification-web-component>,
             ],
           }}
         />
