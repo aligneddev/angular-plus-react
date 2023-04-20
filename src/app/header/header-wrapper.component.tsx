@@ -38,8 +38,9 @@ export class HeaderWrapperComponent
     console.log('changed');
     this.render();
   }
-
+  
   ngAfterViewInit() {
+    console.log('afterViewInit');
     this.render();
   }
 
@@ -48,13 +49,18 @@ export class HeaderWrapperComponent
   }
 
   private render() {
+    // note: I do get this warning from ngAfterViewInit and changed events
+    // Warning: You are calling ReactDOMClient.createRoot() on a container that has already been passed to createRoot() before. Instead, call root.render() on the existing root instead if you want to update it.
+    // I've decided to ignore it since the render is efficient
+    //   If you call render on the same root more than once, React will update the DOM as necessary to reflect the latest JSX you passed. React will decide which parts of the DOM can be reused and which need to be recreated by “matching it up” with the previously rendered tree. Calling render on the same root again is similar to calling the set function on the root component: React avoids unnecessary DOM updates.
+    //   see https://react.dev/learn/preserving-and-resetting-state
     const root = createRoot(this.containerRef.nativeElement as HTMLElement);
     root.render(
       <React.StrictMode>
         <Header
           {...{
             headerComponents: [
-              // tsx won't let us use the web component here
+              // without the ts-ignore, this won't compile
               /* @ts-ignore */
               <notification-web-component counter={this.appNotificationCounter}></notification-web-component>,
             ],
