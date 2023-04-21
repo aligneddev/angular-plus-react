@@ -12,6 +12,9 @@
 
   <p>Note: this will trigger changed and re-render the full component. That's not good</p>
   <button (click)="notification($event)">Increase Notification Count</button>
+
+  <p>Send text to React through document event</p>
+  <input (keyup)="textToReactKeyUp($event)" />
 </div>
 <p style="border: 1px solid red;">Red borders is around an Angular component</p>
 <p style="border: 1px solid blue;">Blue border is around a React component</p>
