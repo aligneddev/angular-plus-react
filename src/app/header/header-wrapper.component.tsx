@@ -54,6 +54,8 @@ export class HeaderWrapperComponent
     // I've decided to ignore it since the render is efficient
     //   If you call render on the same root more than once, React will update the DOM as necessary to reflect the latest JSX you passed. React will decide which parts of the DOM can be reused and which need to be recreated by “matching it up” with the previously rendered tree. Calling render on the same root again is similar to calling the set function on the root component: React avoids unnecessary DOM updates.
     //   see https://react.dev/learn/preserving-and-resetting-state
+    // note: I attempted to avoid it in https://github.com/aligneddev/angular-plus-react/commit/8d39025cb099d0f5ca3ee9026bcefb5cd5e942ec, but updating didn't work so I reverted it
+    // lesson: use the document.dispatchEvent to change values
     const root = createRoot(this.containerRef.nativeElement as HTMLElement);
     root.render(
       <React.StrictMode>
